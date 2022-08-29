@@ -29,7 +29,7 @@ const App = () => {
   const handleNewTravelSubmit = (event) => {
     event.preventDefault();
     axios.post(
-      'https://infinite-sands-80753.herokuapp.com/',
+      'https://arcane-garden-99958.herokuapp.com/',
       {
         name:newName,
         location:newLocation,
@@ -38,7 +38,7 @@ const App = () => {
         nearby:newNearby
       }
     ).then(()=>{
-      axios.get('https://infinite-sands-80753.herokuapp.com/').then((response) => {
+      axios.get('https://arcane-garden-99958.herokuapp.com/').then((response) => {
         setTravel(response.data)
       })
     })
