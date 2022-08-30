@@ -168,15 +168,10 @@ const App = () => {
     <div className="mainContainer">
     <h2>See our Suggestions</h2>
     <button className="btn btn-primary" onClick={showBoston}>Show Boston</button>
-      
-      {travel.map((travel)=>{
+    {display
+     ? travel.map((travel)=>{
         return (
           <div className='container'>
-            <div>
-            {display ? <Boston travel={travel} /> : ''}
-            </div>
-            
-            
             <h2>{travel.name}</h2>
             <h4>{travel.location}</h4>
             <p>{travel.description}</p>
@@ -200,7 +195,8 @@ const App = () => {
                </details>
                 </div>
                 )
-            })}
+            })
+          : null}
     </div>
     <br></br>
     <div className='container1'>
