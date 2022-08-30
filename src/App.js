@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import Boston from './components/Boston'
 
 const App = () => {
   const [travel, setTravel] = useState([]);
@@ -14,6 +15,7 @@ const App = () => {
   const [updatedDescription, setUpdatedDescription]= useState('')
   const [updatedImage, setUpdatedImage]= useState('')
   const [updatedNearby, setUpdatedNearby]= useState('')
+  let [display, setDisplay] = useState(false) 
 
   const handleNewNameChange = (event) => {
     setNewName(event.target.value)
@@ -46,7 +48,9 @@ const App = () => {
   const updateNewNearbyChange = (event) => {
     setUpdatedNearby(event.target.value)
   }
-
+  const showBoston = () => {
+    setDisplay(!display)
+}
   const handleNewTravelSubmit = (event) => {
     event.preventDefault();
     axios.post(
@@ -163,14 +167,21 @@ const App = () => {
     <h1 className='header'>Welcome to our Travel Suggestions Page</h1>
     <div className="mainContainer">
     <h2>See our Suggestions</h2>
+    <button className="btn btn-primary" onClick={showBoston}>Show Boston</button>
+      
       {travel.map((travel)=>{
         return (
           <div className='container'>
-            <h2>{travel.name}</h2>
+            <div>
+            {display ? <Boston travel={travel} /> : ''}
+            </div>
+            
+            
+            {/* <h2>{travel.name}</h2>
             <h4>{travel.location}</h4>
             <p>{travel.description}</p>
             <img className='pic' src = {travel.image}/>
-            <p>Nearby Attractions:{travel.nearby}</p>
+            <p>Nearby Attractions:{travel.nearby}</p> */}
             <button className='update2' onClick={ (event)=>{ handleDelete(travel) } }>Delete</button>
             <details>
               <summary>Update Suggestion</summary>
@@ -185,8 +196,8 @@ const App = () => {
               <input className='update1' type="text" placeholder={travel.image} onKeyUp= {updateNewImageChange}/> <br/>
               <button className='update' onClick={ (event) => { handleUpdateNearby(travel) } }>Update Nearby</button>
               <input className='update1' type="text" placeholder={travel.nearby} onKeyUp= {updateNewNearbyChange}/> <br/>
-            </div> 
-            </details>
+               </div> 
+               </details>
                 </div>
                 )
             })}
