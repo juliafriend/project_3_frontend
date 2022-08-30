@@ -106,7 +106,7 @@ const App = () => {
     })
   }
   const handleUpdateDescription = (travelData)=>{
-    axios.put(`https://infinite-sands-80753.herokuapp.com/travels${travelData._id}`,
+    axios.put(`https://infinite-sands-80753.herokuapp.com/travels/${travelData._id}`,
         {
           name: travelData.name,
           location: travelData.location,
@@ -136,7 +136,7 @@ const App = () => {
     })
   }
   const handleUpdateNearby = (travelData)=>{
-    axios.put(`https://infinite-sands-80753.herokuapp.com/travels${travelData._id}`,
+    axios.put(`https://infinite-sands-80753.herokuapp.com/travels/${travelData._id}`,
         {
           name: travelData.name,
           location: travelData.location,
