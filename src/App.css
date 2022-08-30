@@ -46,6 +46,12 @@ body {
   padding: 1em;
   border-radius: 25px;
 }
+.subContainer1 {
+  width: 30%;
+  background-color: rgb(205, 231, 246);
+  padding: 1em;
+  border-radius: 25px;
+}
 .update {
   width: 25%;
   padding: .5em;
