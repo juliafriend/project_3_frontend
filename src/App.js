@@ -158,7 +158,6 @@ const App = () => {
         })
 },[])
 
-
   return (
     <div className="container">
     <h1>Welcome to our Travel Suggestions Page</h1>
