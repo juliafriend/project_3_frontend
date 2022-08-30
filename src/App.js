@@ -192,8 +192,9 @@ const App = () => {
             })}
     </div>
     <br></br>
-    <div className='container'>
+    <div className='container1'>
     <h2>Create new suggestion</h2>
+    <div className='subContainer'>>
       <form onSubmit={handleNewTravelSubmit}>
         Name: <input type="text" onChange={handleNewNameChange}/><br/>
         Location: <input type="text" onChange={handleNewLocationChange}/><br/>
@@ -202,6 +203,7 @@ const App = () => {
         Nearby: <input type="text" onChange={handleNewNearbyChange}/><br/>
         <input type="submit" value="Post your suggestion"/>
       </form>
+    </div>
     </div>
     </>
   )
