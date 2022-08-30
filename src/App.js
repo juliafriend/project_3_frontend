@@ -167,13 +167,13 @@ const App = () => {
         return (
           <div className='container'>
             <h2>{travel.name}</h2>
-            <h2>{travel.location}</h2>
+            <h4>{travel.location}</h4>
             <p>{travel.description}</p>
             <img className='pic' src = {travel.image}/>
-            <p>{travel.nearby}</p>
-            <details>
-              <summary>Update Info</summary>
+            <p>Nearby Attractions:{travel.nearby}</p>
             <button className='update2' onClick={ (event)=>{ handleDelete(travel) } }>Delete</button>
+            <details>
+              <summary>Update Suggestion</summary>
               <div className='subContainer'>
               <button className='update' onClick={ (event) => { handleUpdateName(travel) } }>Update Name</button>
               <input className='update1' type="text" placeholder={travel.name} onKeyUp= {updateNewNameChange}/> <br/>
