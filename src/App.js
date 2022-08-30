@@ -50,7 +50,7 @@ const App = () => {
   const handleNewTravelSubmit = (event) => {
     event.preventDefault();
     axios.post(
-      'https://infinite-sands-80753.herokuapp.com/',
+      'https://infinite-sands-80753.herokuapp.com',
       {
         name:newName,
         location:newLocation,
@@ -59,7 +59,7 @@ const App = () => {
         nearby:newNearby
       }
     ).then(()=>{
-      axios.get('https://infinite-sands-80753.herokuapp.com/').then((response) => {
+      axios.get('https://infinite-sands-80753.herokuapp.com').then((response) => {
         setTravel(response.data)
       })
     })
@@ -69,7 +69,7 @@ const App = () => {
         .delete(`https://infinite-sands-80753.herokuapp.com/${travelData._id}`)
         .then(() => {
           axios
-              .get('https://infinite-sands-80753.herokuapp.com/')
+              .get('https://infinite-sands-80753.herokuapp.com')
               .then((response) => {
                 setTravel(response.data)
               });
@@ -84,7 +84,7 @@ const App = () => {
           image: travelData.image,
           nearby: travelData.nearby
         }
-      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com/')
+      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com')
           .then((response) => {
             setTravel(response.data);
           })
@@ -99,7 +99,7 @@ const App = () => {
           image: travelData.image,
           nearby: travelData.nearby
         }
-      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com/')
+      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com')
           .then((response) => {
             setTravel(response.data);
           })
@@ -114,7 +114,7 @@ const App = () => {
           image: travelData.image,
           nearby: travelData.nearby
         }
-      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com/')
+      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com')
           .then((response) => {
             setTravel(response.data);
           })
@@ -129,7 +129,7 @@ const App = () => {
           image: updatedImage,
           nearby: travelData.nearby
         }
-      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com/')
+      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com')
           .then((response) => {
             setTravel(response.data);
           })
@@ -144,7 +144,7 @@ const App = () => {
           image: travelData.image,
           nearby: updatedNearby
         }
-      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com/')
+      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com')
           .then((response) => {
             setTravel(response.data);
           })
@@ -152,7 +152,7 @@ const App = () => {
   }
   useEffect(()=>{
     axios
-        .get('https://infinite-sands-80753.herokuapp.com/')
+        .get('https://infinite-sands-80753.herokuapp.com')
         .then((response)=>{
         	setTravel(response.data)
         })
