@@ -194,7 +194,7 @@ const App = () => {
     <br></br>
     <div className='container1'>
     <h2>Create new suggestion</h2>
-    <div className='subContainer'>
+    <div className='subContainer1'>
       <form onSubmit={handleNewTravelSubmit}>
         Name: <input type="text" onChange={handleNewNameChange}/><br/>
         Location: <input type="text" onChange={handleNewLocationChange}/><br/>
