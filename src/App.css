@@ -1,3 +1,57 @@
-* {
-  background-color: lightslategray;
+body {
+  text-align: center;
+  background-color: RGB(0,0,0,.1);
+  background-image: url(https://secure.img1-fg.wfcdn.com/im/94339889/resize-h700-w700%5Ecompr-r85/1439/143971746/Dshawn+Peel+And+Stick+Wallpaper.jpg);
+}
+.header {
+  font-size: 48px;
+  color: rgb(108, 108, 243);
+  text-align: center;
+  position: sticky;
+  margin-top: 350px;
+  background-color: white;
+  margin-right: 25%;
+  margin-left: 25%;
+}
+.pic {
+  width: 400px;
+  height: auto;
+  border-radius: 25px;
+}
+.mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.container {
+  background-color: rgb(245, 238, 220);
+  border: 1px solid black;
+  padding: .5em;
+  text-align: center;
+  margin: auto auto 10px auto;
+  border-radius: 25px;
+}
+.subContainer {
+  width: 500px;
+  background-color: rgb(192, 226, 245);
+  padding: 1em;
+  border-radius: 25px;
+}
+.update {
+  width: 25%;
+  padding: .5em;
+  margin-right: 5px;
+}
+.update1 {
+  width: 70%;
+  padding: .5em;
+}
+.update2 {
+  padding: .5em;
+  width: 200px;
+}
+button:hover {
+  background-color: rgb(179, 182, 231);
+  color: black;
 }
