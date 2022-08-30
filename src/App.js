@@ -174,7 +174,7 @@ const App = () => {
     <h2>See our Suggestions</h2>
       {travel.map((travel)=>{
         return (
-          <div>
+          <div className = "container">
             <h2>{travel.name}</h2>
             <h2>{travel.location}</h2>
             <p>{travel.description}</p>
