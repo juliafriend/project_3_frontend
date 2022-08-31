@@ -15,7 +15,7 @@ const App = () => {
   const [updatedImage, setUpdatedImage]= useState('')
   const [updatedNearby, setUpdatedNearby]= useState('')
   let [display, setDisplay] = useState(false)
-  let [displayLosAngeles, setDisplayLosAngeles] = useState(false);
+  let [displayLosAngeles, setDisplayLosAngeles] = useState(true);
   const [losAngeles, setLosAngeles] = useState([]); 
   
 
