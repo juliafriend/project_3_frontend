@@ -175,7 +175,7 @@ const getBoston = () => {
 }
 const getLosAngeles = () => {
   axios
-  .get('https://infinite-sands-80753.herokuapp.com/losangeles')
+  .get('https://infinite-sands-80753.herokuapp.com/losAngeles')
   .then((response)=>{
     setLosAngeles(response.data)
     
