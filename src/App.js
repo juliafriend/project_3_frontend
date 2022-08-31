@@ -270,7 +270,7 @@ const getLosAngeles = () => {
     {displayLosAngeles
      ? losAngeles.map((losAngeles)=>{
         return (
-          <div className='container'>
+          <div className='containerLA'>
             <h2>{losAngeles.name}</h2>
             <h4>{losAngeles.location}</h4>
             <p>{losAngeles.description}</p>
@@ -301,7 +301,7 @@ const getLosAngeles = () => {
     </div>
     <div className='container1'>
     <h2>Make a new LA Recommendation!</h2>
-    <div className='subContainer1'>
+    <div className='subContainer1LA'>
       <form onSubmit={handleNewLosAngelesSubmit}>
         <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChangeLA}/><br/>
         <input className='update1' type="text" placeholder="Location" onChange={handleNewLocationChangeLA}/><br/>

@@ -40,6 +40,14 @@ body {
   margin: auto auto 10px auto;
   border-radius: 25px;
 }
+.containerLA {
+  background-color: rgb(203, 240, 199);
+  border: 1px solid black;
+  padding: .5em;
+  text-align: center;
+  margin: auto auto 10px auto;
+  border-radius: 25px;
+}
 .container1 {
   background-color: rgb(245, 238, 220);
   border: 1px solid black;
@@ -55,8 +63,15 @@ body {
   border-radius: 25px;
 }
 .subContainer1 {
-  width: 60%;
-  background-color: rgb(205, 231, 246);
+  width: 90%;
+  padding: 1em;
+  border-radius: 25px;
+  text-align: center;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.subContainer1LA {
+  width: 90%;
   padding: 1em;
   border-radius: 25px;
   text-align: center;
