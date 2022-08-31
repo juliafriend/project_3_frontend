@@ -1,7 +1,6 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import Boston from './components/Boston'
 
 const App = () => {
   const [travel, setTravel] = useState([]);
@@ -15,7 +14,10 @@ const App = () => {
   const [updatedDescription, setUpdatedDescription]= useState('')
   const [updatedImage, setUpdatedImage]= useState('')
   const [updatedNearby, setUpdatedNearby]= useState('')
-  let [display, setDisplay] = useState(false) 
+  let [display, setDisplay] = useState(false)
+  let [displayLosAngeles, setDisplayLosAngeles] = useState(false);
+  const [losAngeles, setLosAngeles] = useState([]); 
+  
 
   const handleNewNameChange = (event) => {
     setNewName(event.target.value)
@@ -50,7 +52,12 @@ const App = () => {
   }
   const showBoston = () => {
     setDisplay(!display)
-}
+    setDisplayLosAngeles(false)
+  }
+  const showLosAngeles = () => {
+    setDisplayLosAngeles(!displayLosAngeles)
+    setDisplay(false)
+  }
   const handleNewTravelSubmit = (event) => {
     event.preventDefault();
     axios.post(
@@ -154,19 +161,33 @@ const App = () => {
           })
     })
   }
-  useEffect(()=>{
+useEffect(()=>{
+  getBoston();
+  getLosAngeles();
+},[])
+
+const getBoston = () => {
     axios
         .get('https://infinite-sands-80753.herokuapp.com/travels')
         .then((response)=>{
         	setTravel(response.data)
         })
-},[])
+}
+const getLosAngeles = () => {
+  axios
+  .get('https://infinite-sands-80753.herokuapp.com/losangeles')
+  .then((response)=>{
+    setLosAngeles(response.data)
+    setDisplayLosAngeles(false)
+  })
+}
 
   return (
     <>
     <h1 className='header'>Welcome to our Travel Suggestions Page</h1>
     <div className="mainContainer">
-    <button className="btn btn-primary" onClick={showBoston}>Boston Recommendations</button>
+    <button className="btn" onClick={showBoston}>Boston Recommendations</button>
+    <button className="btn" onClick={showLosAngeles}>Los Angeles Recommendations</button>
     {display
      ? travel.map((travel)=>{
         return (
@@ -196,6 +217,20 @@ const App = () => {
                 )
             })
           : null}
+    {displayLosAngeles
+     ? losAngeles.map((losAngeles)=>{
+        return (
+          <div className='container'>
+            <h2>{losAngeles.name}</h2>
+            <h4>{losAngeles.location}</h4>
+            <p>{losAngeles.description}</p>
+            <img className='pic' src = {losAngeles.image}/>
+            <p>Nearby Attractions:{losAngeles.nearby}</p>
+                </div>
+                )
+            })
+          : null}
+
     </div>
     <br></br>
     <div className='container1'>
