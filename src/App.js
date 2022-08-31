@@ -123,17 +123,17 @@ const App = () => {
               });
         });
   }
-  const handleDeleteLA = (LAData) => {
-    axios
-        .delete(`https://infinite-sands-80753.herokuapp.com/losAngeles/${LAData._id}`)
-        .then(() => {
-          axios
-              .get('https://infinite-sands-80753.herokuapp.com/losAngeles/')
-              .then((response) => {
-                setTravel(response.data)
-              });
-        });
-  }
+  // const handleDeleteLA = (LAData) => {
+  //   axios
+  //       .delete(`https://infinite-sands-80753.herokuapp.com/losAngeles/${LAData._id}`)
+  //       .then(() => {
+  //         axios
+  //             .get('https://infinite-sands-80753.herokuapp.com/losAngeles')
+  //             .then((response) => {
+  //               setTravel(response.data)
+  //             });
+  //       });
+  // }
   const handleUpdateName = (travelData)=>{
     axios.put(`https://infinite-sands-80753.herokuapp.com/travels/${traveData._id}`,
         {
