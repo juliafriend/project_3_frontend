@@ -242,7 +242,6 @@ const getLosAngeles = () => {
           <div className='container'>
             <h2>{travel.name}</h2>
             <h4>{travel.location}</h4>
-            <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJd09KaJZw44kR534lTbut-Dk&key=AIzaSyBGmqSTuzj_foedx5uJHxz8N6sXATPr1EA"></iframe>
             <p>{travel.description}</p>
             <img className='pic' src = {travel.image}/>
             <p>Nearby Attractions:{travel.nearby}</p>
