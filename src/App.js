@@ -9,6 +9,11 @@ const App = () => {
   const [newDescription, setNewDescription] = useState('');
   const [newImage, setNewImage] = useState('');
   const [newNearby, setNewNearby] = useState('');
+  const [newNameLA, setNewNameLA] = useState('');
+  const [newLocationLA, setNewLocationLA] = useState('');
+  const [newDescriptionLA, setNewDescriptionLA] = useState('');
+  const [newImageLA, setNewImageLA] = useState('');
+  const [newNearbyLA, setNewNearbyLA] = useState('');
   const [updatedName, setUpdatedName]= useState('')
   const [updatedLocation, setUpdatedLocation]= useState('')
   const [updatedDescription, setUpdatedDescription]= useState('')
@@ -34,7 +39,21 @@ const App = () => {
   const handleNewNearbyChange = (event) => {
     setNewNearby(event.target.value)
   }
-
+  const handleNewNameChangeLA = (event) => {
+    setNewNameLA(event.target.value)
+  }
+  const handleNewLocationChangeLA = (event) => {
+    setNewLocationLA(event.target.value)
+  }
+  const handleNewDescriptionChangeLA = (event) => {
+    setNewDescriptionLA(event.target.value)
+  }
+  const handleNewImageChangeLA = (event) => {
+    setNewImageLA(event.target.value)
+  }
+  const handleNewNearbyChangeLA = (event) => {
+    setNewNearbyLA(event.target.value)
+  }
   const updateNewNameChange = (event) => {
     setUpdatedName(event.target.value)
   }
@@ -71,6 +90,23 @@ const App = () => {
       }
     ).then(()=>{
       axios.get('https://infinite-sands-80753.herokuapp.com/travels').then((response) => {
+        setTravel(response.data)
+      })
+    })
+  }
+  const handleNewLosAngelesSubmit = (event) => {
+    event.preventDefault();
+    axios.post(
+      'https://infinite-sands-80753.herokuapp.com/losAngeles',
+      {
+        name:newNameLA,
+        location:newLocationLA,
+        description:newDescriptionLA,
+        image:newImageLA,
+        nearby:newNearbyLA
+      }
+    ).then(()=>{
+      axios.get('https://infinite-sands-80753.herokuapp.com/losAngeles').then((response) => {
         setTravel(response.data)
       })
     })
@@ -235,7 +271,7 @@ const getLosAngeles = () => {
     </div>
     <br></br>
     <div className='container1'>
-    <h2>Make a new Recommendation!</h2>
+    <h2>Make a new Boston Recommendation!</h2>
     <div className='subContainer1'>
       <form onSubmit={handleNewTravelSubmit}>
         <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChange}/><br/>
@@ -243,6 +279,21 @@ const getLosAngeles = () => {
         <input className='update1' type="text" placeholder="Description" onChange={handleNewDescriptionChange}/><br/>
         <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChange}/><br/>
         <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChange}/><br/>
+        <br></br>
+        <input type="submit" value="Post your recommendation"/>
+        <input type="reset" value="Reset Form"/>
+      </form>
+    </div>
+    </div>
+    <div className='container1'>
+    <h2>Make a new LA Recommendation!</h2>
+    <div className='subContainer1'>
+      <form onSubmit={handleNewLosAngelesSubmit}>
+        <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChangeLA}/><br/>
+        <input className='update1' type="text" placeholder="Location" onChange={handleNewLocationChangeLA}/><br/>
+        <input className='update1' type="text" placeholder="Description" onChange={handleNewDescriptionChangeLA}/><br/>
+        <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChangeLA}/><br/>
+        <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChangeLA}/><br/>
         <br></br>
         <input type="submit" value="Post your recommendation"/>
         <input type="reset" value="Reset Form"/>
