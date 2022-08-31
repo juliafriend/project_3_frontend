@@ -166,8 +166,7 @@ const App = () => {
     <>
     <h1 className='header'>Welcome to our Travel Suggestions Page</h1>
     <div className="mainContainer">
-    <h2>See our Suggestions</h2>
-    <button className="btn btn-primary" onClick={showBoston}>Show Boston</button>
+    <button className="btn btn-primary" onClick={showBoston}>Boston Recommendations</button>
     {display
      ? travel.map((travel)=>{
         return (
