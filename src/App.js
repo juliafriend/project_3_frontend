@@ -230,7 +230,6 @@ const getLosAngeles = () => {
     setDisplayLosAngeles(false)
   })
 }
-
   return (
     <>
     <h1 className='header'>BOS to LAX</h1>
@@ -263,7 +262,7 @@ const getLosAngeles = () => {
                </div> 
                </details>
                <br></br>
-                </div>
+                </div> 
                 )
             })
           : null}
@@ -281,24 +280,23 @@ const getLosAngeles = () => {
                 )
             })
           : null}
-
     </div>
     <br></br>
     <div className='container1'>
-    <h2>Make a new Boston Recommendation!</h2>
-    <div className='subContainer1'>
-      <form onSubmit={handleNewTravelSubmit}>
-        <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChange}/><br/>
-        <input className='update1' type="text" placeholder="Location" onChange={handleNewLocationChange}/><br/>
-        <input className='update1' type="text" placeholder="Description" onChange={handleNewDescriptionChange}/><br/>
-        <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChange}/><br/>
-        <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChange}/><br/>
-        <br></br>
-        <input className='margin' type="submit" value="Post your recommendation"/>
-        <input type="reset" value="Reset Form"/>
-      </form>
-    </div>
-    </div>
+            <h2>Make a new Boston Recommendation!</h2>
+            <div className='subContainer1'>
+              <form onSubmit={handleNewTravelSubmit}>
+                <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChange}/><br/>
+                <input className='update1' type="text" placeholder="Location" onChange={handleNewLocationChange}/><br/>
+                <input className='update1' type="text" placeholder="Description" onChange={handleNewDescriptionChange}/><br/>
+                <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChange}/><br/>
+                <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChange}/><br/>
+                <br></br>
+                <input className='margin' type="submit" value="Post your recommendation"/>
+                <input className='margin1' type="reset" value="Reset Form"/>
+              </form>
+            </div>
+            </div>
     <div className='container1'>
     <h2>Make a new LA Recommendation!</h2>
     <div className='subContainer1LA'>
@@ -310,7 +308,7 @@ const getLosAngeles = () => {
         <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChangeLA}/><br/>
         <br></br>
         <input className='margin' type="submit" value="Post your recommendation"/> 
-        <input type="reset" value="Reset Form"/>
+        <input className='margin1'type="reset" value="Reset Form"/>
       </form>
     </div>
     </div>
