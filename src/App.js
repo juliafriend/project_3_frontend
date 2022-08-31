@@ -243,6 +243,7 @@ const getLosAngeles = () => {
         <input className='update1' type="text" placeholder="Description" onChange={handleNewDescriptionChange}/><br/>
         <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChange}/><br/>
         <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChange}/><br/>
+        <br></br>
         <input type="submit" value="Post your recommendation"/>
         <input type="reset" value="Reset Form"/>
       </form>
