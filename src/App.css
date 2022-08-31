@@ -40,7 +40,7 @@ body {
   margin-right: 10%;
 }
 .container {
-  background-color: rgb(245, 238, 220);
+  background-color: rgb(220, 234, 245);
   border: 2px solid rgb(28, 75, 243);
   padding: .5em;
   text-align: center;
@@ -48,7 +48,7 @@ body {
   border-radius: 25px;
 }
 .containerLA {
-  background-color: rgb(245, 238, 220);
+  background-color: rgb(227, 245, 220);
   border: 2px solid rgb(10, 80, 37);
   padding: .5em;
   text-align: center;
@@ -97,6 +97,11 @@ body {
 .update2 {
   padding: .5em;
   width: 200px;
+}
+.update3 {
+  padding: .5em;
+  width: 200px;
+  margin-bottom: 15px;
 }
 .margin {
   margin-right: 15px;

@@ -245,7 +245,7 @@ const getLosAngeles = () => {
             <p>{travel.description}</p>
             <img className='pic' src = {travel.image}/>
             <p>Nearby Attractions:{travel.nearby}</p>
-            <button className='update2' onClick={ (event)=>{ handleDelete(travel) } }>Delete</button> <br></br>
+            <button className='update3' onClick={ (event)=>{ handleDelete(travel) } }>Delete</button> <br></br>
             <details>
               <summary>Update Suggestion</summary>
               <div className='subContainer'>
@@ -275,7 +275,7 @@ const getLosAngeles = () => {
             <p>{losAngeles.description}</p>
             <img className='pic' src = {losAngeles.image}/>
             <p>Nearby Attractions:{losAngeles.nearby}</p>
-            <button className='update2' onClick={ (event)=>{ handleDeleteLA(losAngeles) } }>Delete</button> <br></br>
+            <button className='update3' onClick={ (event)=>{ handleDeleteLA(losAngeles) } }>Delete</button> <br></br>
                 </div>
                 )
             })
