@@ -123,6 +123,17 @@ const App = () => {
               });
         });
   }
+  const handleDeleteLA = (travelDataLA) => {
+    axios
+        .delete(`https://infinite-sands-80753.herokuapp.com/losAngeles/${travelDataLA._id}`)
+        .then(() => {
+          axios
+              .get('https://infinite-sands-80753.herokuapp.com/losAngeles')
+              .then((response) => {
+                setTravel(response.data)
+              });
+        });
+  }
 
   const handleUpdateName = (travelData)=>{
     axios.put(`https://infinite-sands-80753.herokuapp.com/travels/${travelData._id}`,
@@ -265,6 +276,7 @@ const getLosAngeles = () => {
             <p>{losAngeles.description}</p>
             <img className='pic' src = {losAngeles.image}/>
             <p>Nearby Attractions:{losAngeles.nearby}</p>
+            <button className='update2' onClick={ (event)=>{ handleDeleteLA(losAngeles) } }>Delete</button> <br></br>
                 </div>
                 )
             })
