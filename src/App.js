@@ -178,7 +178,7 @@ const getLosAngeles = () => {
   .get('https://infinite-sands-80753.herokuapp.com/losAngeles')
   .then((response)=>{
     setLosAngeles(response.data)
-    setDisplayLosAngeles(false)
+    
   })
 }
 
