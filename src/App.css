@@ -10,19 +10,19 @@ body {
   position: sticky;
   margin-top: 200px;
   background-color: rgb(253, 250, 250);
-  margin-right: 15%;
-  margin-left: 15%;
+  margin-right: 35%;
+  margin-left: 35%;
   margin-bottom: 30px;
 }
 .btn {
-  margin: auto;
+  margin: auto auto 15px auto;
   padding: 2em;
   font-size: 24px;
   border-radius: 25px;
   background-color: rgb(174, 187, 240);
 }
 .btnLA {
-  margin: auto;
+  margin: auto auto 15px auto;
   padding: 2em;
   font-size: 24px;
   border-radius: 25px;
@@ -41,15 +41,15 @@ body {
 }
 .container {
   background-color: rgb(245, 238, 220);
-  border: 1px solid black;
+  border: 2px solid rgb(28, 75, 243);
   padding: .5em;
   text-align: center;
   margin: auto auto 10px auto;
   border-radius: 25px;
 }
 .containerLA {
-  background-color: rgb(203, 240, 199);
-  border: 1px solid black;
+  background-color: rgb(245, 238, 220);
+  border: 2px solid rgb(10, 80, 37);
   padding: .5em;
   text-align: center;
   margin: auto auto 10px auto;
