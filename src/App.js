@@ -233,10 +233,10 @@ const getLosAngeles = () => {
 
   return (
     <>
-    <h1 className='header'>Welcome to our Travel Suggestions Page</h1>
+    <h1 className='header'>BOS to LAX</h1>
     <div className="mainContainer">
     <button className="btn" onClick={showBoston}>Boston Recommendations</button>
-    <button className="btn" onClick={showLosAngeles}>Los Angeles Recommendations</button>
+    <button className="btnLA" onClick={showLosAngeles}>Los Angeles Recommendations</button>
     {display
      ? travel.map((travel)=>{
         return (
@@ -294,7 +294,7 @@ const getLosAngeles = () => {
         <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChange}/><br/>
         <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChange}/><br/>
         <br></br>
-        <input type="submit" value="Post your recommendation"/>
+        <input type="submit" value="Post your recommendation"/> <br></br>
         <input type="reset" value="Reset Form"/>
       </form>
     </div>
@@ -309,7 +309,7 @@ const getLosAngeles = () => {
         <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChangeLA}/><br/>
         <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChangeLA}/><br/>
         <br></br>
-        <input type="submit" value="Post your recommendation"/>
+        <input type="submit" value="Post your recommendation"/> <br></br>
         <input type="reset" value="Reset Form"/>
       </form>
     </div>
