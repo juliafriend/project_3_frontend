@@ -1,3 +1,7 @@
 * {
   background-color: lightslategray;
 }
+
+img {
+  max-width: 30%;
+}

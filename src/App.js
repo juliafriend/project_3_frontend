@@ -1,6 +1,8 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import Boston from './components/Boston'
+import LosAngeles from './components/LosAngeles'
 
 const App = () => {
   const [travel, setTravel] = useState([]);
@@ -9,11 +11,14 @@ const App = () => {
   const [newDescription, setNewDescription] = useState('');
   const [newImage, setNewImage] = useState('');
   const [newNearby, setNewNearby] = useState('');
-  const [updatedName, setUpdatedName]= useState('')
-  const [updatedLocation, setUpdatedLocation]= useState('')
-  const [updatedDescription, setUpdatedDescription]= useState('')
-  const [updatedImage, setUpdatedImage]= useState('')
-  const [updatedNearby, setUpdatedNearby]= useState('')
+  const [updatedName, setUpdatedName]= useState('');
+  const [updatedLocation, setUpdatedLocation]= useState('');
+  const [updatedDescription, setUpdatedDescription]= useState('');
+  const [updatedImage, setUpdatedImage]= useState('');
+  const [updatedNearby, setUpdatedNearby]= useState('');
+  let [display, setDisplay] = useState(false);
+  let [displayLosAngeles, setDisplayLosAngeles] = useState(false);
+  const [losAngeles, setLosAngeles] = useState([]);
 
   const handleNewNameChange = (event) => {
     setNewName(event.target.value)
@@ -47,10 +52,20 @@ const App = () => {
     setUpdatedNearby(event.target.value)
   }
 
+const showBoston = () => {
+    setDisplay(!display)
+    setDisplayLosAngeles(false)
+}
+
+const showLosAngeles = () => {
+  setDisplayLosAngeles(!displayLosAngeles)
+  setDisplay(false)
+}
+
   const handleNewTravelSubmit = (event) => {
     event.preventDefault();
     axios.post(
-      'https://infinite-sands-80753.herokuapp.com',
+      'http://localhost:3000/travels/',
       {
         name:newName,
         location:newLocation,
@@ -59,24 +74,24 @@ const App = () => {
         nearby:newNearby
       }
     ).then(()=>{
-      axios.get('https://infinite-sands-80753.herokuapp.com').then((response) => {
+      axios.get('http://localhost:3000/travels/').then((response) => {
         setTravel(response.data)
       })
     })
   }
   const handleDelete = (travelData) => {
     axios
-        .delete(`https://infinite-sands-80753.herokuapp.com/${travelData._id}`)
+        .delete(`http://localhost:3000/travels/${travelData._id}`)
         .then(() => {
           axios
-              .get('https://infinite-sands-80753.herokuapp.com/')
+              .get('http://localhost:3000/travels/')
               .then((response) => {
                 setTravel(response.data)
               });
         });
   }
   const handleUpdateName = (travelData)=>{
-    axios.put(`https://infinite-sands-80753.herokuapp.com/${travelData._id}`,
+    axios.put(`http://localhost:3000/travels/${travelData._id}`,
         {
           name: updatedName,
           location: travelData.location,
@@ -84,14 +99,14 @@ const App = () => {
           image: travelData.image,
           nearby: travelData.nearby
         }
-      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com')
+      ).then((response) => { axios.get('http://localhost:3000/travels/')
           .then((response) => {
             setTravel(response.data);
           })
     })
   }
   const handleUpdateLocation = (travelData)=>{
-    axios.put(`https://infinite-sands-80753.herokuapp.com/${travelData._id}`,
+    axios.put(`http://localhost:3000/travels/${travelData._id}`,
         {
           name: travelData.name,
           location: updatedLocation,
@@ -99,14 +114,14 @@ const App = () => {
           image: travelData.image,
           nearby: travelData.nearby
         }
-      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com')
+      ).then((response) => { axios.get('http://localhost:3000/travels/')
           .then((response) => {
             setTravel(response.data);
           })
     })
   }
   const handleUpdateDescription = (travelData)=>{
-    axios.put(`https://infinite-sands-80753.herokuapp.com/${travelData._id}`,
+    axios.put(`http://localhost:3000/travels/${travelData._id}`,
         {
           name: travelData.name,
           location: travelData.location,
@@ -114,14 +129,14 @@ const App = () => {
           image: travelData.image,
           nearby: travelData.nearby
         }
-      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com/')
+      ).then((response) => { axios.get('http://localhost:3000/travels/')
           .then((response) => {
             setTravel(response.data);
           })
     })
   }
   const handleUpdateImage = (travelData)=>{
-    axios.put(`https://infinite-sands-80753.herokuapp.com/${travelData._id}`,
+    axios.put(`http://localhost:3000/travels/${travelData._id}`,
         {
           name: travelData.name,
           location: travelData.location,
@@ -129,14 +144,14 @@ const App = () => {
           image: updatedImage,
           nearby: travelData.nearby
         }
-      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com/')
+      ).then((response) => { axios.get('http://localhost:3000/travels/')
           .then((response) => {
             setTravel(response.data);
           })
     })
   }
   const handleUpdateNearby = (travelData)=>{
-    axios.put(`https://infinite-sands-80753.herokuapp.com/${travelData._id}`,
+    axios.put(`http://localhost:3000/travels/${travelData._id}`,
         {
           name: travelData.name,
           location: travelData.location,
@@ -144,20 +159,32 @@ const App = () => {
           image: travelData.image,
           nearby: updatedNearby
         }
-      ).then((response) => { axios.get('https://infinite-sands-80753.herokuapp.com/')
+      ).then((response) => { axios.get('http://localhost:3000/travels/')
           .then((response) => {
             setTravel(response.data);
           })
     })
   }
   useEffect(()=>{
-    axios
-        .get('https://infinite-sands-80753.herokuapp.com/')
-        .then((response)=>{
-        	setTravel(response.data)
-        })
+    getBoston();
+    getLosAngeles();
 },[])
 
+const getBoston = () => {
+  axios
+  .get('http://localhost:3000/travels/')
+  .then((response)=>{
+    setTravel(response.data)
+  })
+}
+const getLosAngeles = () => {
+  axios
+  .get('http://localhost:3000/losangeles/')
+  .then((response)=>{
+    setLosAngeles(response.data)
+    setDisplayLosAngeles(false)
+  })
+}
   return (
     <div className="container">
     <h1>Welcome to our Travel Suggestions Page</h1>
@@ -172,30 +199,24 @@ const App = () => {
       </form>
     <hr/>
     <h2>See our Suggestions</h2>
+    <button className="btn btn-primary" onClick={showBoston}>Show Boston</button> 
+    <button className="btn btn-primary" onClick={showLosAngeles}>Show LA</button> 
+    <div>
       {travel.map((travel)=>{
         return (
-          <div className = "container">
-            <h2>{travel.name}</h2>
-            <h2>{travel.location}</h2>
-            <p>{travel.description}</p>
-            <img src = {travel.image}/>
-            <p>{travel.nearby}</p>
-            <button onClick={ (event)=>{ handleDelete(travel) } }>Delete</button>
-              <div className='subContainer'>
-              <button className='update' onClick={ (event) => { handleUpdateName(travel) } }>Update Name</button>
-              <input className='update1' type="text" placeholder={travel.name} onKeyUp= {updateNewNameChange}/> <br/>
-              <button className='update' onClick={ (event) => { handleUpdateLocation(travel) } }>Edit Location</button>
-              <input className='update1' type="text" placeholder={travel.location} onKeyUp= {updateNewLocationChange}/> <br/>
-              <button className='update' onClick={ (event) => { handleUpdateDescription(travel) } }>Update Description</button>
-              <input className='update1' type="text" placeholder={travel.description} onKeyUp= {updateNewDescriptionChange}/> <br/>
-              <button className='update' onClick={ (event) => { handleUpdateImage(travel) } }>Update Image</button>
-              <input className='update1' type="text" placeholder={travel.image} onKeyUp= {updateNewImageChange}/> <br/>
-              <button className='update' onClick={ (event) => { handleUpdateNearby(travel) } }>Update Nearby</button>
-              <input className='update1' type="text" placeholder={travel.nearby} onKeyUp= {updateNewNearbyChange}/> <br/>
-            </div> 
-                </div>
+            <div>
+                {display ? <Boston travel={travel} /> : null}
+            </div>
                 )
             })}
+      {losAngeles.map((losAngeles) => {
+        return (
+          <div>
+                {displayLosAngeles ? <LosAngeles losAngeles={losAngeles} /> : null}
+          </div>
+        )
+      })}
+    </div>
     </div>
   )
 }
