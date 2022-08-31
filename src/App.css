@@ -17,6 +17,8 @@ body {
   margin: auto;
   padding: 2em;
   font-size: 24px;
+  border-radius: 25px;
+  background-color: rgb(174, 187, 240);
 }
 .pic {
   width: 400px;
@@ -52,10 +54,11 @@ body {
   border-radius: 25px;
 }
 .subContainer1 {
-  width: 95%;
+  width: 75%;
   background-color: rgb(205, 231, 246);
   padding: 1em;
   border-radius: 25px;
+  text-align: left;
 }
 .update {
   width: 25%;
