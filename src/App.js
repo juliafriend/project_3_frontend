@@ -197,7 +197,7 @@ const getLosAngeles = () => {
             <p>{travel.description}</p>
             <img className='pic' src = {travel.image}/>
             <p>Nearby Attractions:{travel.nearby}</p>
-            <button className='update2' onClick={ (event)=>{ handleDelete(travel) } }>Delete</button>
+            <button className='update2' onClick={ (event)=>{ handleDelete(travel) } }>Delete</button> <br></br>
             <details>
               <summary>Update Suggestion</summary>
               <div className='subContainer'>
@@ -213,6 +213,7 @@ const getLosAngeles = () => {
               <input className='update1' type="text" placeholder={travel.nearby} onKeyUp= {updateNewNearbyChange}/> <br/>
                </div> 
                </details>
+               <br></br>
                 </div>
                 )
             })
@@ -234,15 +235,16 @@ const getLosAngeles = () => {
     </div>
     <br></br>
     <div className='container1'>
-    <h2>Create new suggestion</h2>
+    <h2>Make a new Recommendation!</h2>
     <div className='subContainer1'>
       <form onSubmit={handleNewTravelSubmit}>
-        Name: <input type="text" onChange={handleNewNameChange}/><br/>
-        Location: <input type="text" onChange={handleNewLocationChange}/><br/>
-        Description: <input type="text" onChange={handleNewDescriptionChange}/><br/>
-        Image: <input type="text" onChange={handleNewImageChange}/><br/>
-        Nearby: <input type="text" onChange={handleNewNearbyChange}/><br/>
-        <input type="submit" value="Post your suggestion"/>
+        <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChange}/><br/>
+        <input className='update1' type="text" placeholder="Location" onChange={handleNewLocationChange}/><br/>
+        <input className='update1' type="text" placeholder="Description" onChange={handleNewDescriptionChange}/><br/>
+        <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChange}/><br/>
+        <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChange}/><br/>
+        <input type="submit" value="Post your recommendation"/>
+        <input type="reset" value="Reset Form"/>
       </form>
     </div>
     </div>
