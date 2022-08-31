@@ -125,7 +125,7 @@ const App = () => {
   }
 
   const handleUpdateName = (travelData)=>{
-    axios.put(`https://infinite-sands-80753.herokuapp.com/travels/${traveData._id}`,
+    axios.put(`https://infinite-sands-80753.herokuapp.com/travels/${travelData._id}`,
         {
           name: updatedName,
           location: travelData.location,
