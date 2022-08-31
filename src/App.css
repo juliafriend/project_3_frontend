@@ -54,11 +54,11 @@ body {
   border-radius: 25px;
 }
 .subContainer1 {
-  width: 75%;
+  width: 60%;
   background-color: rgb(205, 231, 246);
   padding: 1em;
   border-radius: 25px;
-  text-align: left;
+  text-align: center;
   margin-right: 20px;
 }
 .update {
