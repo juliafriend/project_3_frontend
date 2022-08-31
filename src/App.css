@@ -98,6 +98,9 @@ body {
   padding: .5em;
   width: 200px;
 }
+.margin {
+  margin-right: 15px;
+}
 button:hover {
   background-color: rgb(179, 182, 231);
   color: black;
