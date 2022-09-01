@@ -9,15 +9,19 @@ const App = () => {
   const [newDescription, setNewDescription] = useState('');
   const [newImage, setNewImage] = useState('');
   const [newNearby, setNewNearby] = useState('');
+  const [newNameLA, setNewNameLA] = useState('');
+  const [newLocationLA, setNewLocationLA] = useState('');
+  const [newDescriptionLA, setNewDescriptionLA] = useState('');
+  const [newImageLA, setNewImageLA] = useState('');
+  const [newNearbyLA, setNewNearbyLA] = useState('');
   const [updatedName, setUpdatedName]= useState('')
   const [updatedLocation, setUpdatedLocation]= useState('')
   const [updatedDescription, setUpdatedDescription]= useState('')
   const [updatedImage, setUpdatedImage]= useState('')
   const [updatedNearby, setUpdatedNearby]= useState('')
   let [display, setDisplay] = useState(false)
-  let [displayLosAngeles, setDisplayLosAngeles] = useState(false);
+  let [displayLosAngeles, setDisplayLosAngeles] = useState(true);
   const [losAngeles, setLosAngeles] = useState([]); 
-
   
 
   const handleNewNameChange = (event) => {
@@ -36,6 +40,21 @@ const App = () => {
     setNewNearby(event.target.value)
   }
 
+  const handleNewNameChangeLA = (event) => {
+    setNewNameLA(event.target.value)
+  }
+  const handleNewLocationChangeLA = (event) => {
+    setNewLocationLA(event.target.value)
+  }
+  const handleNewDescriptionChangeLA = (event) => {
+    setNewDescriptionLA(event.target.value)
+  }
+  const handleNewImageChangeLA = (event) => {
+    setNewImageLA(event.target.value)
+  }
+  const handleNewNearbyChangeLA = (event) => {
+    setNewNearbyLA(event.target.value)
+  }
   const updateNewNameChange = (event) => {
     setUpdatedName(event.target.value)
   }
@@ -76,7 +95,23 @@ const App = () => {
       })
     })
   }
-
+  const handleNewLosAngelesSubmit = (event) => {
+    event.preventDefault();
+    axios.post(
+      'https://infinite-sands-80753.herokuapp.com/losAngeles',
+      {
+        name:newNameLA,
+        location:newLocationLA,
+        description:newDescriptionLA,
+        image:newImageLA,
+        nearby:newNearbyLA
+      }
+    ).then(()=>{
+      axios.get('https://infinite-sands-80753.herokuapp.com/losAngeles').then((response) => {
+        setTravel(response.data)
+      })
+    })
+  }
   const handleDelete = (travelData) => {
     axios
         .delete(`https://infinite-sands-80753.herokuapp.com/travels/${travelData._id}`)
@@ -88,6 +123,18 @@ const App = () => {
               });
         });
   }
+  const handleDeleteLA = (travelDataLA) => {
+    axios
+        .delete(`https://infinite-sands-80753.herokuapp.com/losAngeles/${travelDataLA._id}`)
+        .then(() => {
+          axios
+              .get('https://infinite-sands-80753.herokuapp.com/losAngeles')
+              .then((response) => {
+                setTravel(response.data)
+              });
+        });
+  }
+
   const handleUpdateName = (travelData)=>{
     axios.put(`https://infinite-sands-80753.herokuapp.com/travels/${travelData._id}`,
         {
@@ -183,24 +230,22 @@ const getLosAngeles = () => {
     setDisplayLosAngeles(false)
   })
 }
-
   return (
     <>
-    <h1 className='header'>Welcome to our Travel Suggestions Page</h1>
+    <h1 className='header'>BOS to LAX</h1>
     <div className="mainContainer">
     <button className="btn" onClick={showBoston}>Boston Recommendations</button>
-    <button className="btn" onClick={showLosAngeles}>Los Angeles Recommendations</button>
+    <button className="btnLA" onClick={showLosAngeles}>Los Angeles Recommendations</button>
     {display
      ? travel.map((travel)=>{
         return (
           <div className='container'>
-            
             <h2>{travel.name}</h2>
             <h4>{travel.location}</h4>
             <p>{travel.description}</p>
             <img className='pic' src = {travel.image}/>
             <p>Nearby Attractions:{travel.nearby}</p>
-            <button className='update2' onClick={ (event)=>{ handleDelete(travel) } }>Delete</button> <br></br>
+            <button className='update3' onClick={ (event)=>{ handleDelete(travel) } }>Delete</button> <br></br>
             <details>
               <summary>Update Suggestion</summary>
               <div className='subContainer'>
@@ -217,38 +262,53 @@ const getLosAngeles = () => {
                </div> 
                </details>
                <br></br>
-                </div>
+                </div> 
                 )
             })
           : null}
     {displayLosAngeles
      ? losAngeles.map((losAngeles)=>{
         return (
-          <div className='container'>
+          <div className='containerLA'>
             <h2>{losAngeles.name}</h2>
             <h4>{losAngeles.location}</h4>
             <p>{losAngeles.description}</p>
             <img className='pic' src = {losAngeles.image}/>
             <p>Nearby Attractions:{losAngeles.nearby}</p>
+            <button className='update3' onClick={ (event)=>{ handleDeleteLA(losAngeles) } }>Delete</button> <br></br>
                 </div>
                 )
             })
           : null}
-
     </div>
     <br></br>
     <div className='container1'>
-    <h2>Make a new Recommendation!</h2>
-    <div className='subContainer1'>
-      <form onSubmit={handleNewTravelSubmit}>
-        <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChange}/><br/>
-        <input className='update1' type="text" placeholder="Location" onChange={handleNewLocationChange}/><br/>
-        <input className='update1' type="text" placeholder="Description" onChange={handleNewDescriptionChange}/><br/>
-        <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChange}/><br/>
-        <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChange}/><br/>
+            <h2>Make a new Boston Recommendation!</h2>
+            <div className='subContainer1'>
+              <form onSubmit={handleNewTravelSubmit}>
+                <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChange}/><br/>
+                <input className='update1' type="text" placeholder="Location" onChange={handleNewLocationChange}/><br/>
+                <input className='update1' type="text" placeholder="Description" onChange={handleNewDescriptionChange}/><br/>
+                <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChange}/><br/>
+                <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChange}/><br/>
+                <br></br>
+                <input className='margin' type="submit" value="Post your recommendation"/>
+                <input className='margin1' type="reset" value="Reset Form"/>
+              </form>
+            </div>
+            </div>
+    <div className='container1'>
+    <h2>Make a new LA Recommendation!</h2>
+    <div className='subContainer1LA'>
+      <form onSubmit={handleNewLosAngelesSubmit}>
+        <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChangeLA}/><br/>
+        <input className='update1' type="text" placeholder="Location" onChange={handleNewLocationChangeLA}/><br/>
+        <input className='update1' type="text" placeholder="Description" onChange={handleNewDescriptionChangeLA}/><br/>
+        <input className='update1' type="text" placeholder="Image Link" onChange={handleNewImageChangeLA}/><br/>
+        <input className='update1' type="text" placeholder="Nearby" onChange={handleNewNearbyChangeLA}/><br/>
         <br></br>
-        <input type="submit" value="Post your recommendation"/>
-        <input type="reset" value="Reset Form"/>
+        <input className='margin' type="submit" value="Post your recommendation"/> 
+        <input className='margin1'type="reset" value="Reset Form"/>
       </form>
     </div>
     </div>
