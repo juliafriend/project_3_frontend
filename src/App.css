@@ -2,6 +2,7 @@ body {
   text-align: center;
   background-color: RGB(0,0,0,.1);
   background-image: url(https://secure.img1-fg.wfcdn.com/im/94339889/resize-h700-w700%5Ecompr-r85/1439/143971746/Dshawn+Peel+And+Stick+Wallpaper.jpg);
+  font-family: 'Ropa Sans', sans-serif;
 }
 .header {
   font-size: 48px;
