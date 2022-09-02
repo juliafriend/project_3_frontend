@@ -283,7 +283,7 @@ const getLosAngeles = () => {
     </div>
     <br></br>
     <div className='container1'>
-            <h2>Make a new Boston Recommendation!</h2>
+            <h2>Make a Boston Recommendation!</h2>
             <div className='subContainer1'>
               <form onSubmit={handleNewTravelSubmit}>
                 <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChange}/><br/>
@@ -298,7 +298,7 @@ const getLosAngeles = () => {
             </div>
             </div>
     <div className='container1'>
-    <h2>Make a new LA Recommendation!</h2>
+    <h2>Make a Los Angeles Recommendation!</h2>
     <div className='subContainer1LA'>
       <form onSubmit={handleNewLosAngelesSubmit}>
         <input className='update1' type="text" placeholder="Name" onChange={handleNewNameChangeLA}/><br/>
