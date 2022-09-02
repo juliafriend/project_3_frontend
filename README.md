@@ -20,4 +20,4 @@ Styling:
     We used flexboxes and vanilla CSS for styling. 
 
 Challenges:
-    We attempted to incorporate google maps but were unable to.
+    We attempted to incorporate google maps with iframes but were unable to. We did not attempt with JS. 
